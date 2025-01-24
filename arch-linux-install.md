@@ -1,4 +1,6 @@
 # Arch Linux Install Guide
+Make sure you are installing on an empty drive. Use fdisk to delete partitions on both the usb and installation drive.
+
 ## Verify Arch Linux ISO and create bootable USB
 <dl><dd>
 <pre>
@@ -6,15 +8,15 @@
 <b>sha256sum -c sha.txt
 sudo pacman-key -v archlinux-[version]-x86_64.iso.sig
 lsblk
-mkfs.ext4 /dev/sd*</b> # Replace * with relevant USB output
-<b>fdisk /dev/sd*</b> 
+fdisk /dev/sd*</b> # Replace * with relevant USB output
         Command (m for help): <b>n</b>
                 Partition number (1-128, default 1): <b>Enter &crarr;</b>
                 First sector: <b>Enter &crarr;</b>
                 Last sector: <b>Enter &crarr;</b>
                         Do you want to remove the signature? [Y]es/[N]o: <b>y</b>
         Command (m for help): <b>w</b>
-<b>sudo dd if=archlinux-[version]-x86_64.iso of=/dev/sd* status=progress bs=2M</b>
+<b>mkfs.ext4 /dev/sd*1
+sudo dd if=archlinux-[version]-x86_64.iso of=/dev/sd* status=progress bs=2M</b>
 </pre>
 </dd></dl>
 ‎
