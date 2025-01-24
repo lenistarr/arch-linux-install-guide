@@ -1,5 +1,5 @@
 # Arch Linux Install Guide
-Make sure you are installing on an empty drive. Use fdisk to delete partitions on both the usb and installation drive.
+Make sure you are installing on an empty drive. Use fdisk to delete partitions on both the USB and installation drive.
 
 ## Verify Arch Linux ISO and create bootable USB
 <dl><dd>
