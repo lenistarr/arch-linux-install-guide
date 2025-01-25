@@ -101,7 +101,6 @@ reboot</b>
 <dl><dd>
 <pre>
 <b>nmcli r wifi on
-nmcli d wifi connect [network ID] password [network password]
-reboot</b>
+nmcli d wifi connect [network ID] password [network password]</b>
 </pre>
 </dd></dl>
