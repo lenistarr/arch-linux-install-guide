@@ -93,6 +93,7 @@ grub-install /dev/sd*
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
 umount -a
+sync
 reboot</b>
 </pre>
 </dd></dl>
