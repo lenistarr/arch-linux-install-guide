@@ -74,7 +74,7 @@ swapon /dev/sd*2
 </pre>
 </dd></dl>
 
- ## Base installation
+ ## Basic installation
  <dl><dd>
 <pre>
 pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware vim networkmanager
