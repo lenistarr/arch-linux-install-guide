@@ -71,13 +71,21 @@ mkfs.fat -F 32 /dev/sd*1
 mount /dev/sd*3 /mnt
 mount --mkdir /dev/sd*1 /mnt/boot/efi
 swapon /dev/sd*2
+</pre>
+</dd></dl>
 
  ## Base installation
+ <dl><dd>
+<pre>
 pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware vim networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
+</pre>
+</dd></dl>
 
 ## Basic configuration
+<dl><dd>
+<pre>
 ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
 hwclock --systohc
 vim /etc/locale.gen <i># Uncomment your locale, e.g. en_US.UTF-8 UTF-8</i>
