@@ -77,7 +77,7 @@ pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware vim networ
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
-# Basic configuration
+## Basic configuration
 ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
 hwclock --systohc
 vim /etc/locale.gen <i># Uncomment your locale, e.g. en_US.UTF-8 UTF-8</i>
