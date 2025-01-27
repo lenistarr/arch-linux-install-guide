@@ -8,15 +8,15 @@ Make sure you are installing on an empty drive. Use fdisk to delete partitions o
 <b>sha256sum -c sha.txt
 sudo pacman-key -v archlinux-</b>[version]<b>-x86_64.iso.sig
 lsblk
-fdisk /dev/sd</b>* <i># Replace * with relevant USB output
-        Command (m for help):</i> <b>n</b>
+fdisk /dev/sd</b>* <i># Replace * with relevant USB input when running</i> <b>lsblk</b>
+        <i>Command (m for help):</i> <b>n</b>
                 <i>Partition number (1-128, default 1):</i> <b>Enter</b>
                 <i>First sector:</i> <b>Enter</b>
                 <i>Last sector:</i> <b>Enter</b>
                         <i>Do you want to remove the signature? [Y]es/[N]o:</i> <b>y</b>
         <i>Command (m for help):</i> <b>w</b>
-<b>mkfs.ext4 /dev/sd*1
-sudo dd if=archlinux-</b>[version]<b>-x86_64.iso of=/dev/sd* status=progress bs=2M</b>
+<b>mkfs.ext4 /dev/sd</b>x<b>1</b>
+<b>sudo dd if=archlinux-</b>[version]<b>-x86_64.iso of=/dev/sd</b>* <b>status=progress bs=2M</b>
 </pre>
 </dd></dl>
 ‎
@@ -47,7 +47,7 @@ station wlan0 connect </b>[network ID]
 <dl><dd>
 <pre>
 <b>lsblk
-gdisk /dev/sd*</b> <i># Type</i> <b>n</b> <i>and then</i> <b>w</b>
+gdisk /dev/sd</b>* <i># Type</i> <b>n</b> <i>and then</i> <b>w</b>
 <b>fdisk /dev/sd</b>*
         <i>Command (m for help):</i> <b>n</b>
                 <i>Partition number (1-128, default 1):</i> <b>Enter</b>
@@ -57,7 +57,7 @@ gdisk /dev/sd*</b> <i># Type</i> <b>n</b> <i>and then</i> <b>w</b>
         <i>Command (m for help):</i> <b>n</b>
                 <i>Partition number (1-128, default 2):</i> <b>Enter</b>
                 <i>First sector:</i> <b>Enter</b>
-                <i>Last sector:</i> <b>+</b>[enter value]<b>G</b> <i># At least same size as RAM, preferably double if using hibernation</i>
+                <i>Last sector:</i> <b>+</b>[enter value]<b>G</b> <i># At least same size as RAM, preferably double if using hibernation, e.g. if RAM is 8 GB then write</i> <b>+16G</b>
                         <i>Do you want to remove the signature? [Y]es/[N]o:</i> <b>y</b>
         <i>Command (m for help):</i> <b>n</b>
                 <i>Partition number (1-128, default 3):</i> <b>Enter</b>
@@ -65,40 +65,40 @@ gdisk /dev/sd*</b> <i># Type</i> <b>n</b> <i>and then</i> <b>w</b>
                 <i>Last sector:</i> <b>Enter</b>
                         <i>Do you want to remove the signature? [Y]es/[N]o:</i> <b>y</b>
         <i>Command (m for help):</i> <b>w
-mkfs.ext4 /dev/sd*3
-mkswap /dev/sd*2
-mkfs.fat -F 32 /dev/sd*1
-mount /dev/sd*3 /mnt
-mount --mkdir /dev/sd*1 /mnt/boot/efi
-swapon /dev/sd*2</b>
+mkfs.ext4 /dev/sd</b>*<b>3
+mkswap /dev/sd</b>*<b>2
+mkfs.fat -F 32 /dev/sd</b>*<b>1
+mount /dev/sd</b>*<b>3 /mnt
+mount --mkdir /dev/sd</b>*<b>1 /mnt/boot/efi
+swapon /dev/sd</b>*<b>2</b>
 </pre>
 </dd></dl>
 
  ## Basic installation
  <dl><dd>
 <pre>
-pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware vim networkmanager
+<b>pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware vim networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
+arch-chroot /mnt</b>
 </pre>
 </dd></dl>
 
 ## Basic configuration
 <dl><dd>
 <pre>
-ln -sf /usr/share/zoneinfo/[region]/[city] /etc/localtime
+<b>ln -sf /usr/share/zoneinfo/</b>[region]<b>/</b>[city]<b> /etc/localtime
 hwclock --systohc
-vim /etc/locale.gen <i># Uncomment your locale, e.g. en_US.UTF-8 UTF-8</i>
-locale-gen
-vim /etc/locale.conf <i># Write "LANG=[locale]", e.g. LANG=en_US.UTF-8</i>
-vim /etc/hostname <i># Write "[hostname]"</i>
-passwd
-        <i>New password:
-        Retype new password:</i>
-useradd -m -G wheel -s /bin/bash [username]
-passwd [name]
-        <i>New password:
-        Retype new password:</i>
+vim /etc/locale.gen</b> <i># Uncomment your locale, e.g.</i> en_US.UTF-8 UTF-8
+<b>locale-gen
+vim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=en_US.UTF-8
+<b>vim /etc/hostname</b> <i># Write your "[hostname]"</i>, e.g.</i> thinkpad
+<b>passwd</b>
+        <i>New password:</i> [enter your root password]
+        <i>Retype new password:</i> [re-enter your root password]
+<b>useradd -m -G wheel -s /bin/bash</b> [username] <i># Write your username, e.g.</i> john
+<b>passwd</b> [name]
+        <i>New password: [enter your user password] <i># Just make it the same as your root password</i>
+        <i>Retype new password:</i> [enter your user password]
 EDITOR=vim visudo <i># Uncomment "%wheel ALL=(ALL:ALL) ALL" under heading ##Uncomment to allow members of group wheel to execute any command</i>
 systemctl enable NetworkManager
 grub-install /dev/sd*
