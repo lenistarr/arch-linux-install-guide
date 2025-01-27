@@ -4,7 +4,7 @@ Make sure you are installing on an empty drive. Use fdisk to delete partitions o
 ## Verify Arch Linux ISO and create bootable USB
 <dl><dd>
 <pre>
-<b>nvim sha.txt</b> <i># Write</i> "[SHA256]  archlinux-[version]-x86_64.iso"
+<b>vim sha.txt</b> <i># Write</i> "[SHA256]  archlinux-[version]-x86_64.iso"
 <b>sha256sum -c sha.txt
 sudo pacman-key -v archlinux-</b>[version]<b>-x86_64.iso.sig
 lsblk
@@ -77,7 +77,7 @@ swapon /dev/sd</b>*<b>2</b>
  ## Basic installation
  <dl><dd>
 <pre>
-<b>pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware neovim networkmanager
+<b>pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware vim networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt</b>
 </pre>
@@ -88,10 +88,10 @@ arch-chroot /mnt</b>
 <pre>
 <b>ln -sf /usr/share/zoneinfo/</b>[region]<b>/</b>[city]<b> /etc/localtime
 hwclock --systohc
-nvim /etc/locale.gen</b> <i># Uncomment your locale, e.g.</i> en_US.UTF-8 UTF-8
+vim /etc/locale.gen</b> <i># Uncomment your locale, e.g.</i> en_US.UTF-8 UTF-8
 <b>locale-gen
-nvim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=en_US.UTF-8
-<b>nvim /etc/hostname</b> <i># Write your</i> "[hostname]"<i>, e.g.</i> thinkpad
+vim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=en_US.UTF-8
+<b>vim /etc/hostname</b> <i># Write your</i> "[hostname]"<i>, e.g.</i> thinkpad
 <b>passwd</b>
         <i>New password:</i> [enter your root password]
         <i>Retype new password:</i> [re-enter your root password]
@@ -99,7 +99,7 @@ nvim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=
 <b>passwd</b> [name]
         <i>New password:</i> [enter your user password] <i># Just make it the same as your root password</i>
         <i>Retype new password:</i> [enter your user password]
-<b>EDITOR=nvim visudo</b> <i># Uncomment</i> "%wheel ALL=(ALL:ALL) ALL" <i>under heading</i> ##Uncomment to allow members of group wheel to execute any command</i>
+<b>EDITOR=vim visudo</b> <i># Uncomment</i> "%wheel ALL=(ALL:ALL) ALL" <i>under heading</i> ##Uncomment to allow members of group wheel to execute any command</i>
 <b>systemctl enable NetworkManager
 grub-install /dev/sd</b>* <i># Install on whole disk, not on the individual partitions</i>
 <b>grub-mkconfig -o /boot/grub/grub.cfg
