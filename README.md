@@ -101,7 +101,7 @@ vim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=e
         <i>Retype new password:</i> [enter your user password]
 <b>EDITOR=vim visudo</b> <i># Uncomment</i> "%wheel ALL=(ALL:ALL) ALL" <i>under heading</i> ##Uncomment to allow members of group wheel to execute any command</i>
 <b>systemctl enable NetworkManager
-grub-install /dev/sd</b>* <i># Install on whole disk and not on the individual partitions</i>
+grub-install /dev/sd</b>* <i># Install on whole disk, not on the individual partitions</i>
 <b>grub-mkconfig -o /boot/grub/grub.cfg
 exit
 umount -a
