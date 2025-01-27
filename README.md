@@ -57,7 +57,7 @@ gdisk /dev/sd</b>* <i># Type</i> <b>n</b> <i>and then</i> <b>w</b>
         <i>Command (m for help):</i> <b>n</b>
                 <i>Partition number (1-128, default 2):</i> <b>Enter</b>
                 <i>First sector:</i> <b>Enter</b>
-                <i>Last sector:</i> <b>+</b>[enter value]<b>G</b> <i># At least same size as RAM, preferably double if using hibernation, e.g. if RAM is 8 GB then write</i> <b>+16G</b>
+                <i>Last sector:</i> <b>+</b>[enter value]<b>G</b> <i># Same as RAM, preferably double if using hibernation, e.g. if RAM is 8 GB then write</i> <b>+16G</b>
                         <i>Do you want to remove the signature? [Y]es/[N]o:</i> <b>y</b>
         <i>Command (m for help):</i> <b>n</b>
                 <i>Partition number (1-128, default 3):</i> <b>Enter</b>
