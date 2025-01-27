@@ -91,7 +91,7 @@ hwclock --systohc
 vim /etc/locale.gen</b> <i># Uncomment your locale, e.g.</i> en_US.UTF-8 UTF-8
 <b>locale-gen
 vim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=en_US.UTF-8
-<b>vim /etc/hostname</b> <i># Write your "[hostname]"</i>, e.g.</i> thinkpad
+<b>vim /etc/hostname</b> <i># Write your</i> "[hostname]"<i>, e.g.</i> thinkpad
 <b>passwd</b>
         <i>New password:</i> [enter your root password]
         <i>Retype new password:</i> [re-enter your root password]
