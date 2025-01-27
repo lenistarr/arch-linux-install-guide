@@ -97,23 +97,23 @@ vim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=e
         <i>Retype new password:</i> [re-enter your root password]
 <b>useradd -m -G wheel -s /bin/bash</b> [username] <i># Write your username, e.g.</i> john
 <b>passwd</b> [name]
-        <i>New password: [enter your user password] <i># Just make it the same as your root password</i>
+        <i>New password:</i> [enter your user password] <i># Just make it the same as your root password</i>
         <i>Retype new password:</i> [enter your user password]
-EDITOR=vim visudo <i># Uncomment "%wheel ALL=(ALL:ALL) ALL" under heading ##Uncomment to allow members of group wheel to execute any command</i>
-systemctl enable NetworkManager
-grub-install /dev/sd*
-grub-mkconfig -o /boot/grub/grub.cfg
+<b>EDITOR=vim visudo</b> <i># Uncomment</i> "%wheel ALL=(ALL:ALL) ALL" <i>under heading</i> ##Uncomment to allow members of group wheel to execute any command</i>
+<b>systemctl enable NetworkManager
+grub-install /dev/sd</b>* <i># Install on whole disk and not on the individual partitions</i>
+<b>grub-mkconfig -o /boot/grub/grub.cfg
 exit
 umount -a
 sync
-reboot
+reboot</b>
 </pre>
 </dd></dl>
 
 ## Connect to Wi-Fi after reboot
 <dl><dd>
 <pre>
-nmcli r wifi on
-nmcli d wifi connect [network ID] password [network password]
+<b>nmcli r wifi on
+nmcli d wifi connect</b> [network ID] <b>password</b> [network password]
 </pre>
 </dd></dl>
