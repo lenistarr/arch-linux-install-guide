@@ -57,7 +57,7 @@ fdisk /dev/sd*
         <i>Command (m for help):</i> n
                 <i>Partition number (1-128, default 2):</i> Enter 
                 <i>First sector:</i> Enter 
-                <i>Last sector:</i> +[at least same size as RAM]G
+                <i>Last sector:</i> +[at least same size as RAM, preferably double]G
                         <i>Do you want to remove the signature? [Y]es/[N]o:</i> y
         <i>Command (m for help):</i> n
                 <i>Partition number (1-128, default 3):</i> Enter
