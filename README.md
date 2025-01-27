@@ -4,7 +4,7 @@ Make sure you are installing on an empty drive. Use fdisk to delete partitions o
 ## Verify Arch Linux ISO and create bootable USB
 <dl><dd>
 <pre>
-<b>vim sha.txt</b> <i># Write</i> "[SHA256]  archlinux-[version]-x86_64.iso"
+<b>nvim sha.txt</b> <i># Write</i> "[SHA256]  archlinux-[version]-x86_64.iso"
 <b>sha256sum -c sha.txt
 sudo pacman-key -v archlinux-</b>[version]<b>-x86_64.iso.sig
 lsblk
