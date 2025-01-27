@@ -77,7 +77,7 @@ swapon /dev/sd</b>*<b>2</b>
  ## Basic installation
  <dl><dd>
 <pre>
-<b>pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware vim networkmanager
+<b>pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware neovim networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt</b>
 </pre>
@@ -88,10 +88,10 @@ arch-chroot /mnt</b>
 <pre>
 <b>ln -sf /usr/share/zoneinfo/</b>[region]<b>/</b>[city]<b> /etc/localtime
 hwclock --systohc
-vim /etc/locale.gen</b> <i># Uncomment your locale, e.g.</i> en_US.UTF-8 UTF-8
+nvim /etc/locale.gen</b> <i># Uncomment your locale, e.g.</i> en_US.UTF-8 UTF-8
 <b>locale-gen
-vim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=en_US.UTF-8
-<b>vim /etc/hostname</b> <i># Write your</i> "[hostname]"<i>, e.g.</i> thinkpad
+nvim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=en_US.UTF-8
+<b>nvim /etc/hostname</b> <i># Write your</i> "[hostname]"<i>, e.g.</i> thinkpad
 <b>passwd</b>
         <i>New password:</i> [enter your root password]
         <i>Retype new password:</i> [re-enter your root password]
@@ -99,7 +99,7 @@ vim /etc/locale.conf</b> <i># Write your</i> "LANG=[locale]"<i>, e.g.</i> LANG=e
 <b>passwd</b> [name]
         <i>New password:</i> [enter your user password] <i># Just make it the same as your root password</i>
         <i>Retype new password:</i> [enter your user password]
-<b>EDITOR=vim visudo</b> <i># Uncomment</i> "%wheel ALL=(ALL:ALL) ALL" <i>under heading</i> ##Uncomment to allow members of group wheel to execute any command</i>
+<b>EDITOR=nvim visudo</b> <i># Uncomment</i> "%wheel ALL=(ALL:ALL) ALL" <i>under heading</i> ##Uncomment to allow members of group wheel to execute any command</i>
 <b>systemctl enable NetworkManager
 grub-install /dev/sd</b>* <i># Install on whole disk, not on the individual partitions</i>
 <b>grub-mkconfig -o /boot/grub/grub.cfg
