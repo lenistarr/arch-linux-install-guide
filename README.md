@@ -46,9 +46,9 @@ station wlan0 connect </b>[network ID]
 If iwctl cannot find the network device, then try this first:
 <dl><dd>
 <pre>
-iwctl
+<b>iwctl
 device list
-adapter [adapter-name] set-property Powered on
+adapter</b> [adapter-name] <b>set-property Powered on</b>
 </pre>
 </dd></dl>
 
