@@ -1,5 +1,5 @@
 # Arch Linux Install Guide
-Make sure you are installing Arch on an empty drive. Use fdisk to delete partitions on both the USB and installation drive.
+Make sure you are installing Arch on an empty hard drive. Use fdisk to delete partitions on both the USB and installation drive.
 
 ## Verify Arch Linux ISO and create bootable USB
 <dl><dd>
@@ -42,7 +42,15 @@ station wlan0 connect </b>[network ID]
 <b>exit</b>
 </pre>
 </dd></dl>
-	
+If iwctl can't find device, then try this first:
+<dl><dd>
+<pre>
+iwctl
+device list
+adapter [adapter-name] set-property Powered on
+</pre>
+</dd></dl>
+
 ## Partition and format disks
 <dl><dd>
 <pre>
