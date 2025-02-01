@@ -42,7 +42,8 @@ station wlan0 connect </b>[network ID]
 <b>exit</b>
 </pre>
 </dd></dl>
-If iwctl can't find device, then try this first:
+
+If iwctl cannot find the network device, then try this first:
 <dl><dd>
 <pre>
 iwctl
