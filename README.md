@@ -8,14 +8,6 @@ Make sure you are installing Arch on an empty hard drive. Use fdisk to delete pa
 <b>sha256sum -c sha.txt
 sudo pacman-key -v archlinux-</b>[version]<b>-x86_64.iso.sig
 lsblk
-fdisk /dev/sd</b>* <i># Replace * with relevant USB input when running</i> <b>lsblk</b>
-        <i>Command (m for help):</i> <b>n</b>
-                <i>Partition number (1-128, default 1):</i> <b>Enter</b>
-                <i>First sector:</i> <b>Enter</b>
-                <i>Last sector:</i> <b>Enter</b>
-                        <i>Do you want to remove the signature? [Y]es/[N]o:</i> <b>y</b>
-        <i>Command (m for help):</i> <b>w</b>
-<b>mkfs.ext4 /dev/sd</b>x<b>1</b>
 <b>sudo dd if=archlinux-</b>[version]<b>-x86_64.iso of=/dev/sd</b>* <b>status=progress bs=2M</b>
 </pre>
 </dd></dl>
